@@ -8,7 +8,8 @@ public class EmailMessage extends Message{
 
 	@Override
 	protected void send(String userName, String password) {
-		if(login.authenticate(userName, password) == 0) {
+		Credentials credentials = new Credentials(userName, password);
+		if(login.authenticate(credentials) == 0) {
 			System.out.println("Email authentication failed for user: " + userName);
 			return;
 		}
